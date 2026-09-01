@@ -4,9 +4,9 @@ import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const OWNER = 'SPEC-TROY-RICH-INTEGRATION-020';
-const EXPECTED_ENTRY = 'index-v16.html';
-const EXPECTED_BYTES = 3653;
-const EXPECTED_SHA = 'acccfb1b396b2cc36a633deff4fe49ad31a822e8b9f20a9031273f5a3996e137';
+const EXPECTED_ENTRY = 'index.html';
+const EXPECTED_BYTES = 13302;
+const EXPECTED_SHA = '070471e8279043d988ad208b5c480621ffb0ca33cd80123d709c3ab65914550e';
 
 function digest(buffer) { return createHash('sha256').update(buffer).digest('hex'); }
 function mismatch(pointer, expected, actual) {
@@ -40,10 +40,10 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
       const baseline = buildTechLabBaseline(root, entry);
       verifyTechLabBaseline(root, baseline);
       writeFileSync(baselinePath, `${JSON.stringify(baseline, null, 2)}\n`);
-      console.log(`V16 tech lab baseline: CREATED (bytes=${baseline.byteLength}, sha256=${baseline.sha256})`);
+      console.log(`통합 실행본 baseline: CREATED (bytes=${baseline.byteLength}, sha256=${baseline.sha256})`);
     } else if (process.argv.includes('--verify-only')) {
       const result = verifyTechLabBaseline(root, JSON.parse(readFileSync(baselinePath, 'utf8')));
-      console.log(`V16 tech lab baseline: PASS (entry=${result.entry}, bytes=${result.bytes})`);
+      console.log(`통합 실행본 baseline: PASS (entry=${result.entry}, bytes=${result.bytes})`);
     } else mismatch('/mode', '--create|--verify-only', 'missing');
   } catch (error) { console.error(error.message); process.exitCode = 1; }
 }

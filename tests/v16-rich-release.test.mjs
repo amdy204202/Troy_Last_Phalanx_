@@ -26,7 +26,7 @@ test('save migration chooses valid V16 then V14 through V12 and writes only troy
 });
 
 test('live runtime declares one active V16 save key and no legacy write key', () => {
-  const source = readFileSync(resolve(root, 'js/game-v15.js'), 'utf8');
+  const source = readFileSync(resolve(root, 'js/game.js'), 'utf8');
   assert.match(source, /const META_KEY = 'troy_save_v16'/);
   assert.doesNotMatch(source, /const META_KEY = 'troy_last_phalanx_v14_meta'/);
 });
@@ -35,11 +35,12 @@ test('rich release is the exact frozen-rich and used V16 closure', () => {
   const urls = buildRichReleaseUrls(root);
   assert.equal(urls.length, new Set(urls).size);
   assert.ok(urls.includes('./css/game.css'));
-  assert.ok(urls.includes('./js/game-v15.js'));
+  assert.ok(urls.includes('./js/game.js'));
+  assert.ok(!urls.some(url => /(?:index-v\d+\.html|js\/game-v\d+\.js)/.test(url)));
   assert.ok(urls.includes('./js/rich-integration-v16.js'));
   assert.ok(urls.includes('./assets/animations/troy-defense-atlas-v16.png'));
   assert.ok(urls.includes('./assets/audio/v16/music_field_base.wav'));
-  assert.deepEqual(validateRichIntegration(root), { route: 'rich', frozenFiles: 106, techBytes: 3653, players: 1, releaseUrls: urls.length });
+  assert.deepEqual(validateRichIntegration(root), { route: 'canonical', frozenFiles: 106, players: 1, releaseUrls: urls.length });
 });
 
 test('rich journey owns three schema-validated independent production profiles', () => {

@@ -31,14 +31,13 @@ export function validatePureCampaignSources(root = projectRoot, overrides = null
 export function validateCampaignProject(root = projectRoot, options = {}) {
   const manifest = validateBattlefieldManifest(JSON.parse(readFileSync(resolve(root,'assets/battlefields/troy-battlefields-v16.json'),'utf8')));
   const reducers = validatePureCampaignSources(root);
-  const live = readFileSync(resolve(root,'index.html'),'utf8'), staged = readFileSync(resolve(root,'index-v16.html'),'utf8');
-  const shell = readFileSync(resolve(root,'js/game-v16.js'),'utf8'), adapter = readFileSync(resolve(root,'js/campaign-adapter-v16.js'),'utf8');
-  if (!/js\/game-v15\.js\?v=16\.0\.0/.test(live) || /js\/game-v16\.js/.test(live) || !/id="menuOverlay"/.test(live)) throw new Error('final live route must be rich V16');
-  if (!/campaign-adapter-v16/.test(shell) || !/registerCampaign\(adapter\)/.test(adapter) || !/js\/game-v16\.js/.test(staged)) throw new Error('campaign registration seam missing');
+  const live = readFileSync(resolve(root,'index.html'),'utf8'),runtime = readFileSync(resolve(root,'js/game.js'),'utf8');
+  if (!/js\/game\.js\?v=16\.0\.0/.test(live) || /js\/game-v\d+\.js/.test(live) || !/id="menuOverlay"/.test(live)) throw new Error('canonical route must use js/game.js only');
+  if (!/createRichPorts/.test(runtime) || !/save-migration-v16/.test(runtime)) throw new Error('canonical campaign integration seam missing');
   const frozenRoot = options.frozenRoot ?? resolve(root, 'e2e/fixtures/v15-frozen');
   const frozen = readFileSync(resolve(frozenRoot, 'index.html'), 'utf8');
-  if (!/js\/game-v15\.js/.test(frozen) || /js\/game-v16\.js/.test(frozen)) throw new Error('frozen route must remain V15');
-  return { packages: manifest.packages, stages: manifest.stages, forbiddenCalls: reducers.forbiddenCalls, liveRoute: 'rich', frozenRoute: 'v15', campaignRoute: 'tech-registered' };
+  if (!/js\/game-v\d+\.js/.test(frozen) || /js\/game\.js/.test(frozen)) throw new Error('frozen route must remain versioned fixture');
+  return { packages: manifest.packages, stages: manifest.stages, forbiddenCalls: reducers.forbiddenCalls, liveRoute: 'canonical', frozenRoute: 'v15', campaignRoute: 'integrated' };
 }
 
 function cliOption(argv, name, fallback) {

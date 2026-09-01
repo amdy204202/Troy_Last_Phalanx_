@@ -88,7 +88,7 @@ export function buildV15Closure(root = projectRoot) {
     appShellUrlCount: appShell.length,
     entryCount: entries.length,
     hashCount: entries.length,
-    modulePaths: ['js/game-v15.js', 'js/combat-rules-v15.js', 'js/run-rules-v15.js'],
+    modulePaths: ['js/game.js', 'js/combat-rules-v15.js', 'js/run-rules-v15.js'],
     runtimeManifestPaths: [
       'assets/animations/troy-defense-atlas-v15.json',
       'assets/obstacles/greek-obstacles-atlas-v15.json',

@@ -16,7 +16,6 @@ const IMMUTABLE = Object.freeze([
 const SHARED = Object.freeze([
   ['audio-listening-v16.json', 'SPEC-TROY-SIEGE-019', 'append'],
   ['css/game.css', 'SPEC-TROY-BATTLEFIELD-017', 'replace'],
-  ['e2e/troy-siege-v16.spec.mjs', 'SPEC-TROY-SIEGE-019', 'narrow-amend'],
   ['e2e/v15-v16-upgrade.spec.mjs', 'SPEC-TROY-SIEGE-019', 'narrow-amend'],
   ['index.html', 'SPEC-TROY-BATTLEFIELD-017', 'replace'],
   ['js/attack-intent-v16.js', 'SPEC-TROY-BATTLEFIELD-017', 'narrow-amend'],
@@ -24,7 +23,7 @@ const SHARED = Object.freeze([
   ['js/audio-director-v16.js', 'SPEC-TROY-SIEGE-019', 'narrow-amend'],
   ['js/boss-fsm-v16.js', 'SPEC-TROY-SIEGE-019', 'narrow-amend'],
   ['js/defense-doctrine-v16.js', 'SPEC-TROY-BATTLEFIELD-017', 'narrow-amend'],
-  ['js/game-v15.js', 'SPEC-TROY-BATTLEFIELD-017', 'replace'],
+  ['js/game.js', 'SPEC-TROY-BATTLEFIELD-017', 'replace'],
   ['js/save-migration-v16.js', 'SPEC-TROY-CAMPAIGN-018', 'narrow-amend'],
   ['js/war-shop-rules-v16.js', 'SPEC-TROY-CAMPAIGN-018', 'narrow-amend'],
   ['manifest.webmanifest', 'SPEC-TROY-SIEGE-019', 'replace'],

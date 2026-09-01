@@ -13,7 +13,7 @@ export const RICH_COVERAGE_FILES = Object.freeze([
   'js/objective-rules-v16.js', 'js/replay-v16.js',
   'js/rich-integration-v16.js', 'js/save-migration-v16.js', 'js/war-shop-rules-v16.js',
 ]);
-export const LEGACY_JOURNEY_FILES = Object.freeze(['js/game-v15.js']);
+export const LEGACY_JOURNEY_FILES = Object.freeze(['js/game.js']);
 const LEGACY_OUTCOME_IDS = Object.freeze([
   'LEGACY-BOOT-SUCCESS', 'LEGACY-BOSS-SUCCESS', 'LEGACY-DEFENSE-SUCCESS', 'LEGACY-GROWTH-SUCCESS',
   'LEGACY-IO-FAILURE', 'LEGACY-LIFECYCLE-TRANSITION', 'LEGACY-SHOP-FAILURE', 'LEGACY-SHOP-SUCCESS',
@@ -61,7 +61,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
       const result = verifyCoverageContract(JSON.parse(readFileSync(manifestPath, 'utf8')));
       console.log(`V16 rich coverage contract: PASS (strictFiles=${result.strictFiles}, legacyFiles=${result.legacyFiles}, exclusions=${result.exclusions})`);
     } else {
-      const contract=JSON.parse(readFileSync(manifestPath,'utf8'));verifyCoverageContract(contract);const files=await collectCoverage(resolve(manifestPath,'../..'));let failed=false;for(const[file,metrics]of Object.entries(files)){const summary=Object.fromEntries(Object.entries(metrics).map(([key,[covered,total]])=>[key,{covered,total,percent:total?Number(percent(covered,total).toFixed(2)):'N/A'}]));console.log(`${file} ${JSON.stringify(summary)}`);if(contract.strictInclude.includes(file)&&Object.entries(summary).some(([key,value])=>value.percent!=='N/A'&&value.percent<contract.thresholds.strict[key]))failed=true;if(file==='js/game-v15.js'&&(summary.lines.covered<contract.legacyBaseline.observedLines||summary.lines.percent<contract.legacyBaseline.lineRate))failed=true}if(failed)throw new Error('RICH_COVERAGE_THRESHOLD_FAILED: actual Node V8 + Chromium coverage is below contract');console.log(`V16 rich coverage: PASS (strictFiles=${contract.strictInclude.length}, legacyFiles=${contract.legacyJourneyInclude.length})`);
+      const contract=JSON.parse(readFileSync(manifestPath,'utf8'));verifyCoverageContract(contract);const files=await collectCoverage(resolve(manifestPath,'../..'));let failed=false;for(const[file,metrics]of Object.entries(files)){const summary=Object.fromEntries(Object.entries(metrics).map(([key,[covered,total]])=>[key,{covered,total,percent:total?Number(percent(covered,total).toFixed(2)):'N/A'}]));console.log(`${file} ${JSON.stringify(summary)}`);if(contract.strictInclude.includes(file)&&Object.entries(summary).some(([key,value])=>value.percent!=='N/A'&&value.percent<contract.thresholds.strict[key]))failed=true;if(file==='js/game.js'&&(summary.lines.covered<contract.legacyBaseline.observedLines||summary.lines.percent<contract.legacyBaseline.lineRate))failed=true}if(failed)throw new Error('RICH_COVERAGE_THRESHOLD_FAILED: actual Node V8 + Chromium coverage is below contract');console.log(`통합 coverage: PASS (strictFiles=${contract.strictInclude.length}, journeyFiles=${contract.legacyJourneyInclude.length})`);
     }
   } catch (error) { console.error(error.message); process.exitCode = 1; }
 }

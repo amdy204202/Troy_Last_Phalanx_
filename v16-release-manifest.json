@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "cacheName": "troy-last-phalanx-v16-rich-2",
+  "cacheName": "troy-last-phalanx-v16-rich-4",
   "urls": [
     "./",
     "./assets/animations/achileon-strip-v10.png",
@@ -137,10 +137,11 @@
     "./js/audio-adapter-v16.js",
     "./js/audio-director-v16.js",
     "./js/battlefield-rules-v16.js",
+    "./js/boss-balance.js",
     "./js/boss-fsm-v16.js",
     "./js/combat-rules-v15.js",
     "./js/defense-doctrine-v16.js",
-    "./js/game-v15.js",
+    "./js/game.js",
     "./js/i18n-v16.js",
     "./js/objective-rules-v16.js",
     "./js/replay-v16.js",

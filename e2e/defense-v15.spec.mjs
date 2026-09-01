@@ -99,8 +99,9 @@ test('V15 service worker는 module graph와 atlas를 캐시하고 오프라인 �
   await page.reload();
   await page.evaluate(()=>navigator.serviceWorker.ready);
   const cached=await page.evaluate(async()=>{const key=(await caches.keys()).find(name=>name.includes('v15'));const cache=await caches.open(key);return(await cache.keys()).map(request=>new URL(request.url).pathname)});
-  for(const path of ['/js/game-v15.js','/js/combat-rules-v15.js','/assets/animations/troy-defense-atlas-v15.json','/assets/sprites/trojan-forces-atlas-v15.png','/assets/obstacles/greek-obstacles-atlas-v15.png'])expect(cached).toContain(path);
+  const fixtureRuntime=cached.filter(path=>/\/js\/game-v\d+\.js$/.test(path));expect(fixtureRuntime).toHaveLength(1);
+  for(const path of ['/js/combat-rules-v15.js','/assets/animations/troy-defense-atlas-v15.json','/assets/sprites/trojan-forces-atlas-v15.png','/assets/obstacles/greek-obstacles-atlas-v15.png'])expect(cached).toContain(path);
   for(const path of V15_EXTERNAL_ENEMIES)expect(cached).toContain(path);
-  expect(cached).not.toContain('/js/game-v14.js');expect(cached).not.toContain('/assets/sprites/trojan-forces-atlas-v14.png');expect(cached).not.toContain('/assets/obstacles/greek-obstacles-atlas-v14.png');
+  expect(cached).not.toContain('/assets/sprites/trojan-forces-atlas-v14.png');expect(cached).not.toContain('/assets/obstacles/greek-obstacles-atlas-v14.png');
   await context.setOffline(true);await page.reload();await expect.poll(()=>page.evaluate(()=>window.__TROY_V15__?.boot?.status)).toBe('ready');await expect.poll(()=>page.evaluate(()=>window.__TROY_V15__.assetReadiness())).toMatchObject({defense:true,externalEnemiesLoaded:19,externalEnemiesTotal:19});await context.setOffline(false);
 });

@@ -64,14 +64,16 @@ export function validateProject(projectRoot=root){
   const loaded={};for(const[key,[pngPath,jsonPath]]of Object.entries(paths)){const pngFile=resolve(projectRoot,pngPath),jsonFile=resolve(projectRoot,jsonPath);if(!existsSync(pngFile)||!existsSync(jsonFile))throw new Error(`${key}: V15 PNG/manifest 파일이 없습니다.`);const text=readFileSync(jsonFile,'utf8'),manifest=key==='defense'?validateDefenseManifest(text,jsonPath):parseManifest(text,jsonPath),buffer=readFileSync(pngFile);validateAtlasBuffer(buffer,manifest,pngPath);if(key==='defense')validateDefensePixels(buffer,manifest,pngPath);loaded[key]=manifest}
   equalKeys(entryKeys(loaded.enemies),ENEMY_KEYS,paths.enemies[1]);equalKeys(entryKeys(loaded.obstacles),OBSTACLE_KEYS,paths.obstacles[1]);
   const v15External=[];for(const[key,entry]of Object.entries(manifestEntriesForValidation(loaded.enemies))){const externalFile=resolve(projectRoot,entry.path||'');if(entry.kind==='external'&&!existsSync(externalFile))throw new Error(`${paths.enemies[1]}: ${key} external 경로 없음 (${entry.path})`);if(entry.kind==='external'&&/-v15\.png$/i.test(entry.path||'')){validateExternalSpriteBuffer(readFileSync(externalFile),entry.path,2);v15External.push(entry.path)}if(entry.kind==='atlas'&&(!Number.isInteger(entry.frame)||entry.frame<0||entry.frame>=loaded.enemies.grid.meaningfulCells))throw new Error(`${paths.enemies[1]}: ${key} atlas frame 범위 오류`)}if(v15External.length!==19)throw new Error(`${paths.enemies[1]}: V15 external sprite는 19개여야 합니다 (${v15External.length})`);
-  const html=readFileSync(resolve(projectRoot,'index.html'),'utf8'),game=readFileSync(resolve(projectRoot,'js/game-v15.js'),'utf8'),css=readFileSync(resolve(projectRoot,'css/game.css'),'utf8'),sw=readFileSync(resolve(projectRoot,'service-worker.js'),'utf8');
-  if(!/<script\s+type="module"\s+src="js\/game-v15\.js/.test(html))throw new Error('index.html: V15 type=module boot 누락');
-  if(!game.includes("from './combat-rules-v15.js'"))throw new Error('game-v15.js: combat rules named import 누락');
-  if(!game.includes("from './run-rules-v15.js'"))throw new Error('game-v15.js: run rules named import 누락');
-  for(const [file,text] of [['index.html',html],['css/game.css',css],['js/game-v15.js',game]])for(const forbidden of ['mobileControls','stickBase','stickKnob','dashBtn','ultimateBtn','dom.mobile','navigator.vibrate','pointerType===\'touch\''])if(text.includes(forbidden))throw new Error(`${file}: PC 전용 표면에 ${forbidden} 잔재가 있습니다.`);
-  if(/\bMath\.random\s*\(/.test(game))throw new Error('game-v15.js: gameRng/visualRng 경계 밖 Math.random 사용');
-  for(const required of ['game-v15.js','combat-rules-v15.js','run-rules-v15.js','troy-defense-atlas-v15.png','trojan-forces-atlas-v15.png','greek-obstacles-atlas-v15.png'])if(!sw.includes(required))throw new Error(`service-worker.js: ${required} 캐시 누락`);
-  for(const external of v15External)if(!sw.includes(external))throw new Error(`service-worker.js: ${external} 캐시 누락`);
+  const html=readFileSync(resolve(projectRoot,'index.html'),'utf8'),css=readFileSync(resolve(projectRoot,'css/game.css'),'utf8'),entry=html.match(/<script\s+type="module"\s+src="(js\/game(?:-v\d+)?\.js)(?:\?[^"']*)?"/)?.[1];
+  if(!entry)throw new Error('index.html: module runtime 진입점 누락');
+  const canonical=entry==='js/game.js';if(!canonical&&!/^js\/game-v\d+\.js$/.test(entry))throw new Error(`index.html: 지원하지 않는 runtime ${entry}`);
+  const game=readFileSync(resolve(projectRoot,entry),'utf8'),cacheContract=canonical?'v16-release-manifest.json':'service-worker.js',cacheSource=readFileSync(resolve(projectRoot,cacheContract),'utf8');
+  if(!game.includes("from './combat-rules-v15.js'"))throw new Error(`${entry}: combat rules named import 누락`);
+  if(!game.includes("from './run-rules-v15.js'"))throw new Error(`${entry}: run rules named import 누락`);
+  for(const [file,text] of [['index.html',html],['css/game.css',css],[entry,game]])for(const forbidden of ['mobileControls','stickBase','stickKnob','dashBtn','ultimateBtn','dom.mobile','navigator.vibrate','pointerType===\'touch\''])if(text.includes(forbidden))throw new Error(`${file}: PC 전용 표면에 ${forbidden} 잔재가 있습니다.`);
+  if(/\bMath\.random\s*\(/.test(game))throw new Error(`${entry}: gameRng/visualRng 경계 밖 Math.random 사용`);
+  for(const required of [entry,'combat-rules-v15.js','run-rules-v15.js','troy-defense-atlas-v15.png','trojan-forces-atlas-v15.png','greek-obstacles-atlas-v15.png'])if(!cacheSource.includes(required))throw new Error(`${cacheContract}: ${required} 캐시 누락`);
+  for(const external of v15External)if(!cacheSource.includes(external))throw new Error(`${cacheContract}: ${external} 캐시 누락`);
   return loaded;
 }
 

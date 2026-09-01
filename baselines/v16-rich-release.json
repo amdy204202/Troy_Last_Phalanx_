@@ -42,8 +42,8 @@
       "sha256": "3b9de5b1611d245b82c60e2c4c5c8919efb4dc7da54c29aaa25f908bc05cfae1"
     },
     {
-      "path": "js/game-v15.js",
-      "sha256": "a398740af2fd7e9e4462b1b225c0ab6eca4ec67b2893f3c169c062a9b75ee291"
+      "path": "js/game.js",
+      "sha256": "6c7247183e65c58e5dafa52bd45bcdcbd5eef5c0d046f91c80e4debcd3236b51"
     },
     {
       "path": "js/save-migration-v16.js",

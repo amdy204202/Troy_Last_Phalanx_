@@ -10,7 +10,7 @@ const input = (page, type, control) => page.evaluate(value => window.__TROY_RICH
 const advance = (page, ticks) => page.evaluate(value => window.__TROY_RICH_TEST__.advanceFixedTicks(value), ticks);
 
 async function startProductionRun(page) {
-  await page.goto('/?test=1');
+  await page.goto(process.env.TROY_TEST_URL ?? '/?test=1');
   await expect.poll(() => page.evaluate(() => window.__TROY_BOOT__?.status)).toBe('ready');
   expect(await page.evaluate(() => Object.keys(window.__TROY_RICH_TEST__).sort())).toEqual(['advanceFixedTicks', 'input', 'seed', 'snapshot']);
   await page.evaluate(() => window.__TROY_RICH_TEST__.seed('responsive-v16'));
@@ -51,7 +51,7 @@ async function reachWarShop(page, choiceState) {
       await input(page, 'press', currentDirection);
     }
     if (attempt % 2 === 0) await input(page, 'tap', 'Space'); else await input(page, 'tap', 'ShiftLeft');
-    const state = await advance(page, 120); lastState = state;
+    const state = await advance(page, before.boss ? 15 : 120); lastState = state;
     if (state.mode === 'end') throw new Error(`run ended before war shop at tick ${state.fixedTick}`);
     if (state.objectiveHistory.some(entry => entry.instanceId === 'shore-0' && entry.status === 'rewarded')) {
       if (state.mode === 'choice') await acceptVisibleChoice(page);
@@ -84,7 +84,7 @@ async function reachActiveBossPattern(page) {
     const state = await advance(page, 120); lastState = state;
     if (state.mode === 'warShop') continue;
     const pattern = state.combatJournal.findLast(entry => entry.type === 'boss-pattern');
-    if (state.boss && pattern) {
+    if (state.boss?.mechanicStage && pattern) {
       if (currentDirection) await input(page, 'release', currentDirection);
       return { state, pattern };
     }
@@ -165,6 +165,9 @@ test('rich production reducer reaches play, choice, war shop, and active boss at
 
     const boss = await reachActiveBossPattern(page);
     expect(boss.state).toMatchObject({ mode: 'play', boss: { type: boss.pattern.bossId } });
+    expect(boss.state.boss.signature).toBeTruthy();
+    expect(boss.state.boss.mechanicStage).toBeTruthy();
+    expect(boss.state.boss).toHaveProperty('hiddenTicks');
     expect(boss.pattern.instanceId).toMatch(new RegExp(`^${boss.pattern.bossId}:\\d+$`));
     await expect(page.locator('#bossWrap')).toBeVisible();
     await measureState(page, { name: 'boss', stateId: `boss:${boss.pattern.bossId}:${boss.pattern.patternId}`, eventId: boss.pattern.instanceId, visibleOverlay: null, criticalSelectors: ['.vitals', '.mission', '.runstats', '#combatActions', '#buildPanel', '#bossWrap'], focusRoot: '#hud' });
@@ -191,4 +194,52 @@ test('settings switches the live title and settings UI between Korean and Englis
   await expect.poll(() => page.evaluate(() => window.__TROY_BOOT__?.status)).toBe('ready');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.locator('#prepareBtn')).toHaveText('DEPLOY THE PHALANX');
+});
+
+test('screen shake defaults off and persists both enabled and disabled choices across reloads', async ({ browser }) => {
+  const context = await browser.newContext({ serviceWorkers: 'block' });
+  const page = await context.newPage();
+  const renderDashImpulse = async () => {
+    await input(page, 'tap', 'Space');
+    await page.evaluate(() => new Promise(resolveFrame => requestAnimationFrame(() => requestAnimationFrame(resolveFrame))));
+    return snapshot(page);
+  };
+  await page.goto(process.env.TROY_TEST_URL ?? '/?test=1');
+  await expect.poll(() => page.evaluate(() => window.__TROY_BOOT__?.status)).toBe('ready');
+
+  await page.click('#settingsBtn');
+  await expect(page.locator('#shakeToggle')).not.toBeChecked();
+  await page.click('#settingsClose');
+  await startProductionRun(page);
+  expect((await renderDashImpulse()).lastRenderShakeOffset).toEqual({ x: 0, y: 0 });
+
+  await page.reload();
+  await expect.poll(() => page.evaluate(() => window.__TROY_BOOT__?.status)).toBe('ready');
+  await page.click('#settingsBtn');
+  await page.locator('#shakeToggle').check();
+  await expect(page.locator('#shakeToggle')).toBeChecked();
+
+  await page.reload();
+  await expect.poll(() => page.evaluate(() => window.__TROY_BOOT__?.status)).toBe('ready');
+  await page.click('#settingsBtn');
+  await expect(page.locator('#shakeToggle')).toBeChecked();
+  await page.click('#settingsClose');
+  await startProductionRun(page);
+  const enabledOffset=(await renderDashImpulse()).lastRenderShakeOffset;
+  expect(Math.abs(enabledOffset.x)+Math.abs(enabledOffset.y)).toBeGreaterThan(0);
+
+  await page.reload();
+  await expect.poll(() => page.evaluate(() => window.__TROY_BOOT__?.status)).toBe('ready');
+  await page.click('#settingsBtn');
+  await page.locator('#shakeToggle').uncheck();
+  await expect(page.locator('#shakeToggle')).not.toBeChecked();
+
+  await page.reload();
+  await expect.poll(() => page.evaluate(() => window.__TROY_BOOT__?.status)).toBe('ready');
+  await page.click('#settingsBtn');
+  await expect(page.locator('#shakeToggle')).not.toBeChecked();
+  await page.click('#settingsClose');
+  await startProductionRun(page);
+  expect((await renderDashImpulse()).lastRenderShakeOffset).toEqual({ x: 0, y: 0 });
+  await context.close();
 });

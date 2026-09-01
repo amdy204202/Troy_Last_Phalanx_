@@ -118,7 +118,7 @@
       "releaseEvidencePath": "baselines/v16-rich-release.json"
     },
     {
-      "path": "js/game-v15.js",
+      "path": "js/game.js",
       "fromSpec": "SPEC-TROY-BATTLEFIELD-017",
       "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
       "fromHash": "f7f9aa18236ecdfaa94f8f622e745c655de31f5d18b254f9e7057a6969c14caf",

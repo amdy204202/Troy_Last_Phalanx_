@@ -9,7 +9,6 @@ export default defineConfig({
   use: { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 },
   projects: [
     { name: 'v15-frozen', testMatch: /v15-frozen-suite\.spec\.mjs/, expect: { timeout: 10_000 }, use: { baseURL: 'http://127.0.0.1:4175' } },
-    { name: 'v16-combat', testMatch: /v16-combat\.spec\.mjs/, use: { baseURL: 'http://127.0.0.1:4176' } },
-    { name: 'v16-live', testMatch: /(?:v16-campaign|troy-siege-v16|v15-v16-upgrade|v16-rich-journey|v16-rich-offline|v16-rich-responsive|v16-rich-defense-state)\.spec\.mjs/, use: { baseURL: 'http://127.0.0.1:4173' } },
+    { name: 'v16-live', testMatch: /(?:v15-v16-upgrade|v16-rich-journey|v16-rich-offline|v16-rich-responsive|v16-rich-defense-state)\.spec\.mjs/, use: { baseURL: 'http://127.0.0.1:4173' } },
   ],
 });

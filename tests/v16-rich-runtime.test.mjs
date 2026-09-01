@@ -23,9 +23,9 @@ test('rich bridge is stateless and cannot own a loop, DOM, storage, or audio han
   assert.equal(ports.hero.combatKey, 'shield');
 });
 
-test('root route restores the rich title and central V15 runtime', () => {
+test('root route exposes one canonical integrated runtime', () => {
   const html = readFileSync(resolve(root, 'index.html'), 'utf8');
   for (const id of ['menuOverlay', 'launchStep', 'prepareBtn', 'councilBtn', 'codexBtn', 'settingsBtn', 'loadoutStep', 'heroSelect', 'startBtn', 'hud', 'canvas', 'warShopOverlay']) assert.match(html, new RegExp(`id=["']${id}["']`));
-  assert.match(html, /js\/game-v15\.js\?v=16\.0\.0/);
-  assert.doesNotMatch(html, /js\/game-v16\.js/);
+  assert.match(html, /js\/game\.js\?v=16\.0\.0/);
+  assert.doesNotMatch(html, /js\/game-v\d+\.js/);
 });

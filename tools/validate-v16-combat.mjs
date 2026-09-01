@@ -245,21 +245,20 @@ export function validatePureReducerSources(root = projectRoot, overrides = null)
 
 export function validateV16CombatProject(root = projectRoot, options = {}) {
   const source = validateSourceNotice(root);
-  const gameSource = readFileSync(resolve(root, 'js/game-v16.js'), 'utf8');
-  const attackFailures = validateAttackIntentSource(gameSource, 'js/game-v16.js');
+  const gameSource = readFileSync(resolve(root, 'js/game.js'), 'utf8');
+  const attackFailures = validateAttackIntentSource(gameSource, 'js/game.js');
   if (attackFailures.length) throw new Error(`attack intent callsite failures\n${attackFailures.join('\n')}`);
   const reducers = validatePureReducerSources(root);
   const manifest = JSON.parse(readFileSync(resolve(root, 'assets/animations/troy-defense-atlas-v16.json'), 'utf8'));
   const animation = validateAnimationAssetBuffers(readFileSync(resolve(root, 'assets/animations/troy-defense-atlas-v16.png')), manifest);
-  const live = readFileSync(resolve(root, 'index.html'), 'utf8'), staged = readFileSync(resolve(root, 'index-v16.html'), 'utf8');
-  if (!/js\/game-v15\.js\?v=16\.0\.0/.test(live) || /js\/game-v16\.js/.test(live) || !/id="menuOverlay"/.test(live)) throw new Error('index.html: final live route must be rich V16');
-  if (!/js\/game-v16\.js/.test(staged)) throw new Error('index-v16.html: staged V16 route missing');
+  const live = readFileSync(resolve(root, 'index.html'), 'utf8');
+  if (!/js\/game\.js\?v=16\.0\.0/.test(live) || /js\/game-v\d+\.js/.test(live) || !/id="menuOverlay"/.test(live)) throw new Error('index.html: canonical runtime must be js/game.js only');
   const frozenRoot = options.frozenRoot ?? resolve(root, 'e2e/fixtures/v15-frozen');
   const baseline = options.baseline ?? resolve(root, 'baselines/v15-frozen.json');
   const frozenHtml = readFileSync(resolve(frozenRoot, 'index.html'), 'utf8');
-  if (!/js\/game-v15\.js/.test(frozenHtml) || /js\/game-v16\.js/.test(frozenHtml)) throw new Error('frozen index.html: route must remain V15');
+  if (!/js\/game-v\d+\.js/.test(frozenHtml) || /js\/game\.js/.test(frozenHtml)) throw new Error('frozen index.html: route must remain versioned fixture');
   const frozen = validateFrozenV15({ root: frozenRoot, manifestPath: baseline });
-  return { sourceNotices: source.repositories, attackCallsiteFailures: 0, forbiddenCalls: reducers.forbiddenCalls, animationFrames: animation.frames, liveRoute: 'rich', stagedRoute: 'v16-tech', frozenRoute: 'v15', frozenEntries: frozen.entryCount };
+  return { sourceNotices: source.repositories, attackCallsiteFailures: 0, forbiddenCalls: reducers.forbiddenCalls, animationFrames: animation.frames, liveRoute: 'canonical', frozenRoute: 'v15', frozenEntries: frozen.entryCount };
 }
 
 function cliOption(argv, name, fallback) {

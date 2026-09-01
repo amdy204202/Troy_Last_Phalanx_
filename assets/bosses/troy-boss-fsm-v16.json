@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "states": ["approach", "windup", "attack", "recovery", "enrage", "stagger", "dead"],
+  "bosses": [
+    {"id":"paris","name":"파리스","patterns":[
+      {"id":"retreat-shot","name":"후퇴 사격","movement":"away-strafe-160","distance":360,"tag":"reflectable","telegraphMs":650,"recoveryMs":700,"threat":"high","phases":[1,2,3],"inset":72},
+      {"id":"triple-arrow","name":"삼연 화살","movement":"fixed-aim","distance":420,"tag":"reflectable","telegraphMs":800,"recoveryMs":900,"threat":"high","phases":[1,2,3],"inset":72},
+      {"id":"falling-line","name":"낙하 사선","movement":"clockwise-orbit-90","distance":300,"tag":"dodgeOnly","telegraphMs":1100,"recoveryMs":1200,"threat":"high","phases":[2,3],"inset":80}]},
+    {"id":"sarpedon","name":"사르페돈","patterns":[
+      {"id":"lance-charge","name":"장창 돌진","movement":"line-420","distance":260,"tag":"parryable","telegraphMs":700,"recoveryMs":900,"threat":"high","phases":[1,2,3],"inset":96},
+      {"id":"circle-shock","name":"원형 충격","movement":"stationary","distance":150,"tag":"dodgeOnly","telegraphMs":900,"recoveryMs":1000,"threat":"high","phases":[1,2,3],"inset":96},
+      {"id":"wing-sweep","name":"날개 휩쓸기","movement":"semicircle-180","distance":190,"tag":"parryable","telegraphMs":750,"recoveryMs":1100,"threat":"high","phases":[2,3],"inset":96}]},
+    {"id":"chariot","name":"전차","patterns":[
+      {"id":"outer-orbit","name":"외곽 선회","movement":"orbit-240","distance":280,"tag":"parryable","telegraphMs":600,"recoveryMs":800,"threat":"high","phases":[1,2,3],"inset":112},
+      {"id":"piercing-charge","name":"관통 돌진","movement":"line-560","distance":340,"tag":"dodgeOnly","telegraphMs":850,"recoveryMs":1200,"threat":"high","phases":[1,2,3],"inset":112},
+      {"id":"wheel-shard","name":"바퀴 파편","movement":"decelerate-180","distance":260,"tag":"reflectable","telegraphMs":950,"recoveryMs":1000,"threat":"high","phases":[2,3],"inset":112}]},
+    {"id":"aeneas","name":"아이네이아스","patterns":[
+      {"id":"shield-advance","name":"방패 전진","movement":"toward-180","distance":160,"tag":"parryable","telegraphMs":650,"recoveryMs":850,"threat":"high","phases":[1,2,3],"inset":88},
+      {"id":"phalanx-fan","name":"방진 부채","movement":"facing-lock","distance":300,"tag":"reflectable","telegraphMs":900,"recoveryMs":1100,"threat":"high","phases":[1,2,3],"inset":88},
+      {"id":"standard-wave","name":"군기 파동","movement":"retreat-120","distance":210,"tag":"dodgeOnly","telegraphMs":1050,"recoveryMs":1250,"threat":"high","phases":[2,3],"inset":96}]},
+    {"id":"penthesilea","name":"펜테실레이아","patterns":[
+      {"id":"flank-slash","name":"측면 참격","movement":"cross-260","distance":150,"tag":"parryable","telegraphMs":550,"recoveryMs":650,"threat":"high","phases":[1,2,3],"inset":80},
+      {"id":"leap-land","name":"도약 착지","movement":"arc-300","distance":180,"tag":"dodgeOnly","telegraphMs":900,"recoveryMs":1000,"threat":"high","phases":[1,2,3],"inset":96},
+      {"id":"javelin-ring","name":"투창 고리","movement":"orbit-120","distance":320,"tag":"reflectable","telegraphMs":1000,"recoveryMs":1150,"threat":"high","phases":[2,3],"inset":80}]},
+    {"id":"memnon","name":"멤논","patterns":[
+      {"id":"sun-advance","name":"태양 전진","movement":"toward-150","distance":190,"tag":"parryable","telegraphMs":700,"recoveryMs":850,"threat":"high","phases":[1,2,3],"inset":96},
+      {"id":"sun-beam","name":"태양 광선","movement":"sweep-45","distance":380,"tag":"dodgeOnly","telegraphMs":1100,"recoveryMs":1300,"threat":"high","phases":[1,2,3],"inset":96},
+      {"id":"earth-slam","name":"대지 강타","movement":"stationary","distance":220,"tag":"unavoidable","telegraphMs":1400,"recoveryMs":1500,"threat":"high","phases":[3],"inset":112}]},
+    {"id":"hector","name":"헥토르","patterns":[
+      {"id":"shield-pressure","name":"방패 압박","movement":"toward-200","distance":140,"tag":"parryable","telegraphMs":600,"recoveryMs":750,"threat":"high","phases":[1,2,3],"inset":96},
+      {"id":"spear-charge","name":"창 돌진","movement":"line-480","distance":320,"tag":"dodgeOnly","telegraphMs":850,"recoveryMs":1050,"threat":"high","phases":[1,2,3],"inset":112},
+      {"id":"last-combo","name":"최후 연계","movement":"combo-160-220","distance":200,"tag":"sub-intent","telegraphMs":0,"recoveryMs":1400,"threat":"high","phases":[3],"inset":112}]}
+  ]
+}

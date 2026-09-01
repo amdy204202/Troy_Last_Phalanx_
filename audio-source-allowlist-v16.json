@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "policy": "V16 runtime audio is authored in this repository; external game audio is denied.",
+  "assets": []
+}

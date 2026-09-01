@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 2,
+  "ownerSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+  "strictInclude": [
+    "js/attack-intent-v16.js",
+    "js/audio-adapter-v16.js",
+    "js/audio-director-v16.js",
+    "js/battlefield-rules-v16.js",
+    "js/boss-fsm-v16.js",
+    "js/defense-doctrine-v16.js",
+    "js/objective-rules-v16.js",
+    "js/replay-v16.js",
+    "js/rich-integration-v16.js",
+    "js/save-migration-v16.js",
+    "js/war-shop-rules-v16.js"
+  ],
+  "legacyJourneyInclude": ["js/game-v15.js"],
+  "exclusions": [],
+  "thresholds": {"strict": {"branches": 90, "functions": 90, "lines": 90, "statements": 90}},
+  "legacyBaseline": {"observedLines": 1338, "totalLines": 2119, "lineRate": 63.142992, "evidence": "progress.md §E.2 AC-015"},
+  "legacyOutcomeIds": [
+    "LEGACY-BOOT-SUCCESS",
+    "LEGACY-BOSS-SUCCESS",
+    "LEGACY-DEFENSE-SUCCESS",
+    "LEGACY-GROWTH-SUCCESS",
+    "LEGACY-IO-FAILURE",
+    "LEGACY-LIFECYCLE-TRANSITION",
+    "LEGACY-SHOP-FAILURE",
+    "LEGACY-SHOP-SUCCESS"
+  ],
+  "sources": ["chromium-v8", "node-v8"]
+}

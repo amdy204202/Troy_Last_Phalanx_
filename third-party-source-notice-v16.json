@@ -1,0 +1,42 @@
+{
+  "schema": "troy.third-party-source-notice/1",
+  "policy": "No third-party game code or assets are copied. Pinned repositories informed independently written architecture only.",
+  "repositories": [
+    {
+      "repository": "ricardo-foundry/canvas-vampire-survivors",
+      "revision": "e616704889e57efc9c1f49098786a95c364008d3",
+      "license": "MIT",
+      "licensePath": "LICENSE",
+      "licenseSha256": "d4f9402cbb8a46777fe59930678968228e381cec7f06cb27f38668f16a03ccab",
+      "reviewedPatterns": ["declarative stage data", "audio bus separation"],
+      "copiedPaths": []
+    },
+    {
+      "repository": "FreePeak/opencombat",
+      "revision": "aad6c51adbe6d89254b2302c7742449090596b86",
+      "license": "MIT",
+      "licensePath": "LICENSE",
+      "licenseSha256": "470f2c0915b1d404a53f3a35c7fde9d447091b8005571f823548d8ce3c0f0940",
+      "reviewedPatterns": ["state machine separation", "animation event separation"],
+      "copiedPaths": []
+    },
+    {
+      "repository": "dknos/kitty-kaki-survivors",
+      "revision": "411c1968d31688f19f8f80d09eebae90b1e27ca9",
+      "license": "MIT",
+      "licensePath": "LICENSE",
+      "licenseSha256": "fbd0f3583f13608939e8e9e904c92492b72a50a3e9cb01596778c76756fd5244",
+      "reviewedPatterns": ["declarative content registration", "telegraph geometry ownership"],
+      "copiedPaths": []
+    },
+    {
+      "repository": "risingore/gear-arena",
+      "revision": "bd1fc80261153ce9295bb603121f9cdbd6329d74",
+      "license": "MIT-code-only",
+      "licensePath": "LICENSE",
+      "licenseSha256": "38848eb46580e2c61a28046ae2b1fb9ccbf1d5231c6db12b2bc7a74cde461dc9",
+      "reviewedPatterns": ["atomic shop state transition"],
+      "copiedPaths": []
+    }
+  ]
+}

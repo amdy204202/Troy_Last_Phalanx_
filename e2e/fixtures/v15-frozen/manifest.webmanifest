@@ -1,0 +1,16 @@
+{
+  "name": "트로이: 최후의 팔랑크스 V14",
+  "short_name": "최후의 팔랑크스",
+  "description": "고대 트로이 전장을 버티는 캐주얼 호플리테스 로그라이트 핵앤슬래시",
+  "lang": "ko",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#070a0e",
+  "theme_color": "#080c11",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

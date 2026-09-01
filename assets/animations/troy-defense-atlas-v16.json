@@ -1,0 +1,902 @@
+{
+  "schema": "troy.defense-animation/16",
+  "source": "troy-defense-keyposes-v16-chroma.png",
+  "sourceSha256": "e538edaa198cd7e844c3ecd3b9b12e55093da1f7a15654be4cbe001f1cc918c7",
+  "grid": {
+    "cellWidth": 128,
+    "cellHeight": 128,
+    "columns": 23,
+    "rows": 3,
+    "meaningfulCells": 69
+  },
+  "heroes": {
+    "hoplite": {
+      "row": 0,
+      "clips": {
+        "parry": {
+          "phases": {
+            "startup": {
+              "startColumn": 0,
+              "frames": [
+                {
+                  "index": 0,
+                  "row": 0,
+                  "col": 0,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "startup"
+                  ]
+                },
+                {
+                  "index": 1,
+                  "row": 0,
+                  "col": 1,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 2,
+                  "row": 0,
+                  "col": 2,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            },
+            "active": {
+              "startColumn": 3,
+              "frames": [
+                {
+                  "index": 3,
+                  "row": 0,
+                  "col": 3,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "active"
+                  ]
+                },
+                {
+                  "index": 4,
+                  "row": 0,
+                  "col": 4,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            },
+            "success": {
+              "startColumn": 5,
+              "frames": [
+                {
+                  "index": 5,
+                  "row": 0,
+                  "col": 5,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "success",
+                    "parry_contact"
+                  ]
+                },
+                {
+                  "index": 6,
+                  "row": 0,
+                  "col": 6,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 7,
+                  "row": 0,
+                  "col": 7,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 8,
+                  "row": 0,
+                  "col": 8,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            },
+            "recovery": {
+              "startColumn": 9,
+              "frames": [
+                {
+                  "index": 9,
+                  "row": 0,
+                  "col": 9,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "recovery"
+                  ]
+                },
+                {
+                  "index": 10,
+                  "row": 0,
+                  "col": 10,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 11,
+                  "row": 0,
+                  "col": 11,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            }
+          }
+        },
+        "dodge": {
+          "phases": {
+            "startup": {
+              "startColumn": 12,
+              "frames": [
+                {
+                  "index": 12,
+                  "row": 0,
+                  "col": 12,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "startup"
+                  ]
+                },
+                {
+                  "index": 13,
+                  "row": 0,
+                  "col": 13,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            },
+            "active": {
+              "startColumn": 14,
+              "frames": [
+                {
+                  "index": 14,
+                  "row": 0,
+                  "col": 14,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "active",
+                    "invuln_start"
+                  ]
+                },
+                {
+                  "index": 15,
+                  "row": 0,
+                  "col": 15,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 16,
+                  "row": 0,
+                  "col": 16,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 17,
+                  "row": 0,
+                  "col": 17,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 18,
+                  "row": 0,
+                  "col": 18,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 19,
+                  "row": 0,
+                  "col": 19,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "invuln_end"
+                  ]
+                }
+              ]
+            },
+            "recovery": {
+              "startColumn": 20,
+              "frames": [
+                {
+                  "index": 20,
+                  "row": 0,
+                  "col": 20,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "recovery"
+                  ]
+                },
+                {
+                  "index": 21,
+                  "row": 0,
+                  "col": 21,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 22,
+                  "row": 0,
+                  "col": 22,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "archer": {
+      "row": 1,
+      "clips": {
+        "parry": {
+          "phases": {
+            "startup": {
+              "startColumn": 0,
+              "frames": [
+                {
+                  "index": 23,
+                  "row": 1,
+                  "col": 0,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "startup"
+                  ]
+                },
+                {
+                  "index": 24,
+                  "row": 1,
+                  "col": 1,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 25,
+                  "row": 1,
+                  "col": 2,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            },
+            "active": {
+              "startColumn": 3,
+              "frames": [
+                {
+                  "index": 26,
+                  "row": 1,
+                  "col": 3,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "active"
+                  ]
+                },
+                {
+                  "index": 27,
+                  "row": 1,
+                  "col": 4,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            },
+            "success": {
+              "startColumn": 5,
+              "frames": [
+                {
+                  "index": 28,
+                  "row": 1,
+                  "col": 5,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "success",
+                    "parry_contact"
+                  ]
+                },
+                {
+                  "index": 29,
+                  "row": 1,
+                  "col": 6,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 30,
+                  "row": 1,
+                  "col": 7,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 31,
+                  "row": 1,
+                  "col": 8,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            },
+            "recovery": {
+              "startColumn": 9,
+              "frames": [
+                {
+                  "index": 32,
+                  "row": 1,
+                  "col": 9,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "recovery"
+                  ]
+                },
+                {
+                  "index": 33,
+                  "row": 1,
+                  "col": 10,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 34,
+                  "row": 1,
+                  "col": 11,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            }
+          }
+        },
+        "dodge": {
+          "phases": {
+            "startup": {
+              "startColumn": 12,
+              "frames": [
+                {
+                  "index": 35,
+                  "row": 1,
+                  "col": 12,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "startup"
+                  ]
+                },
+                {
+                  "index": 36,
+                  "row": 1,
+                  "col": 13,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            },
+            "active": {
+              "startColumn": 14,
+              "frames": [
+                {
+                  "index": 37,
+                  "row": 1,
+                  "col": 14,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "active",
+                    "invuln_start"
+                  ]
+                },
+                {
+                  "index": 38,
+                  "row": 1,
+                  "col": 15,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 39,
+                  "row": 1,
+                  "col": 16,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 40,
+                  "row": 1,
+                  "col": 17,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 41,
+                  "row": 1,
+                  "col": 18,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 42,
+                  "row": 1,
+                  "col": 19,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "invuln_end"
+                  ]
+                }
+              ]
+            },
+            "recovery": {
+              "startColumn": 20,
+              "frames": [
+                {
+                  "index": 43,
+                  "row": 1,
+                  "col": 20,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "recovery"
+                  ]
+                },
+                {
+                  "index": 44,
+                  "row": 1,
+                  "col": 21,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 45,
+                  "row": 1,
+                  "col": 22,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "swordsman": {
+      "row": 2,
+      "clips": {
+        "parry": {
+          "phases": {
+            "startup": {
+              "startColumn": 0,
+              "frames": [
+                {
+                  "index": 46,
+                  "row": 2,
+                  "col": 0,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "startup"
+                  ]
+                },
+                {
+                  "index": 47,
+                  "row": 2,
+                  "col": 1,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 48,
+                  "row": 2,
+                  "col": 2,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            },
+            "active": {
+              "startColumn": 3,
+              "frames": [
+                {
+                  "index": 49,
+                  "row": 2,
+                  "col": 3,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "active"
+                  ]
+                },
+                {
+                  "index": 50,
+                  "row": 2,
+                  "col": 4,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            },
+            "success": {
+              "startColumn": 5,
+              "frames": [
+                {
+                  "index": 51,
+                  "row": 2,
+                  "col": 5,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "success",
+                    "parry_contact"
+                  ]
+                },
+                {
+                  "index": 52,
+                  "row": 2,
+                  "col": 6,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 53,
+                  "row": 2,
+                  "col": 7,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 54,
+                  "row": 2,
+                  "col": 8,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            },
+            "recovery": {
+              "startColumn": 9,
+              "frames": [
+                {
+                  "index": 55,
+                  "row": 2,
+                  "col": 9,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "recovery"
+                  ]
+                },
+                {
+                  "index": 56,
+                  "row": 2,
+                  "col": 10,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 57,
+                  "row": 2,
+                  "col": 11,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            }
+          }
+        },
+        "dodge": {
+          "phases": {
+            "startup": {
+              "startColumn": 12,
+              "frames": [
+                {
+                  "index": 58,
+                  "row": 2,
+                  "col": 12,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "startup"
+                  ]
+                },
+                {
+                  "index": 59,
+                  "row": 2,
+                  "col": 13,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            },
+            "active": {
+              "startColumn": 14,
+              "frames": [
+                {
+                  "index": 60,
+                  "row": 2,
+                  "col": 14,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "active",
+                    "invuln_start"
+                  ]
+                },
+                {
+                  "index": 61,
+                  "row": 2,
+                  "col": 15,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 62,
+                  "row": 2,
+                  "col": 16,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 63,
+                  "row": 2,
+                  "col": 17,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 64,
+                  "row": 2,
+                  "col": 18,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 65,
+                  "row": 2,
+                  "col": 19,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "invuln_end"
+                  ]
+                }
+              ]
+            },
+            "recovery": {
+              "startColumn": 20,
+              "frames": [
+                {
+                  "index": 66,
+                  "row": 2,
+                  "col": 20,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": [
+                    "recovery"
+                  ]
+                },
+                {
+                  "index": 67,
+                  "row": 2,
+                  "col": 21,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                },
+                {
+                  "index": 68,
+                  "row": 2,
+                  "col": 22,
+                  "foot": {
+                    "x": 64,
+                    "y": 116
+                  },
+                  "markers": []
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "ownerSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+  "absorbs": [
+    "SPEC-TROY-BATTLEFIELD-017",
+    "SPEC-TROY-CAMPAIGN-018",
+    "SPEC-TROY-SIEGE-019"
+  ],
+  "dependencyArtifacts": [
+    {
+      "specId": "SPEC-TROY-BATTLEFIELD-017",
+      "path": "assets/animations/troy-defense-atlas-v16.json",
+      "status": "implemented",
+      "sha256": "7012d0fc38c51e6497d22ebe8e56e223058c5f836ed4af1916a1bbdda96c72d3"
+    },
+    {
+      "specId": "SPEC-TROY-SIEGE-019",
+      "path": "assets/audio/v16/audio-manifest.json",
+      "status": "in-progress",
+      "sha256": "1a59a6acac0b4a77563705e99d267a6a1526eea2ddb5a600648fda4697fbcc1a"
+    },
+    {
+      "specId": "SPEC-TROY-CAMPAIGN-018",
+      "path": "assets/battlefields/troy-battlefields-v16.json",
+      "status": "implemented",
+      "sha256": "4bc57473cfdc0ea4b5506e602b4256746e21c23e9e4731362774f14fe40c8e5e"
+    },
+    {
+      "specId": "SPEC-TROY-SIEGE-019",
+      "path": "assets/bosses/troy-boss-fsm-v16.json",
+      "status": "in-progress",
+      "sha256": "d5605237c70d9154a400acd76751eafd18a9c303a27262c668d39dc62d12e4ba"
+    },
+    {
+      "specId": "SPEC-TROY-BATTLEFIELD-017",
+      "path": "baselines/v15-frozen.json",
+      "status": "implemented",
+      "sha256": "1ef90651adeaa84fb48dc3a38d6d04d1861012f7c7c093b92c3431374fda460c"
+    },
+    {
+      "specId": "SPEC-TROY-SIEGE-019",
+      "path": "tools/run-playwright-v16.mjs",
+      "status": "in-progress",
+      "sha256": "3cdddd3e5ac46d304d4bc96b848bc5b872e18be53bb58e11f7ec3ab5cbfbb74f"
+    }
+  ],
+  "sharedFiles": [
+    {
+      "path": "css/game.css",
+      "fromSpec": "SPEC-TROY-BATTLEFIELD-017",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "2366756f022155ad786afa772173345d48c68269e8ba9f4c26ecc1c0b96d414a",
+      "changeMode": "replace",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "e2e/troy-siege-v16.spec.mjs",
+      "fromSpec": "SPEC-TROY-SIEGE-019",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "98ca355c12955d675f04970bc0e5e1691776742971e3dbb5e1b7b2f4063fd79d",
+      "changeMode": "narrow-amend",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "e2e/v15-v16-upgrade.spec.mjs",
+      "fromSpec": "SPEC-TROY-SIEGE-019",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "f7a2a3cb4379c0504f3fb999f24384883402bea6b9ef8966d117beeddedab4a3",
+      "changeMode": "narrow-amend",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "index.html",
+      "fromSpec": "SPEC-TROY-BATTLEFIELD-017",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "70f88e84bad3a8981f77cd9c0e88e50503116616711a953ca5fdc628b13daf91",
+      "changeMode": "replace",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "js/attack-intent-v16.js",
+      "fromSpec": "SPEC-TROY-BATTLEFIELD-017",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "96c6857688bf24865b930bc08ec928db91bc32f95243eae779fbb34e2ccc607a",
+      "changeMode": "narrow-amend",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "js/audio-adapter-v16.js",
+      "fromSpec": "SPEC-TROY-SIEGE-019",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "c95f30be73ae26da09a7e456e601934f13208a5d97bfe3a33b8659f1ce9faade",
+      "changeMode": "narrow-amend",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "js/audio-director-v16.js",
+      "fromSpec": "SPEC-TROY-SIEGE-019",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "63d0228233698e031268c5cf71aca9efc43e4d9b6a5350e1789bdf8820b9a5f7",
+      "changeMode": "narrow-amend",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "js/boss-fsm-v16.js",
+      "fromSpec": "SPEC-TROY-SIEGE-019",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "245421d214a02efeb62dd2119e7be8464147776ee277d7eb4aeedeb59fc392ec",
+      "changeMode": "narrow-amend",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "js/defense-doctrine-v16.js",
+      "fromSpec": "SPEC-TROY-BATTLEFIELD-017",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "98ae579cf12643e39af9925ee075e9162f50f2a07a727bcd9a0bedc01ebb8e4a",
+      "changeMode": "narrow-amend",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "js/game-v15.js",
+      "fromSpec": "SPEC-TROY-BATTLEFIELD-017",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "f7f9aa18236ecdfaa94f8f622e745c655de31f5d18b254f9e7057a6969c14caf",
+      "changeMode": "replace",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "js/save-migration-v16.js",
+      "fromSpec": "SPEC-TROY-CAMPAIGN-018",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "06ac122c256012e2312831eea59d38dbb531aa6f770204417aecbb08263f3a00",
+      "changeMode": "narrow-amend",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "js/war-shop-rules-v16.js",
+      "fromSpec": "SPEC-TROY-CAMPAIGN-018",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "5b37e7cee11129d3fed917451ca25cf047550c5ae8be9413603da1a2db568b24",
+      "changeMode": "narrow-amend",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "fromSpec": "SPEC-TROY-SIEGE-019",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "36dfbdcb695ef9024ad1f7a5a6700a89786b694d01b3ef98c85d53f33d508e7c",
+      "changeMode": "replace",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "package.json",
+      "fromSpec": "SPEC-TROY-SIEGE-019",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "5774da1e62eccb818b950339ae3fb829f0c70f9ce315bf142172b6fa3e0393e8",
+      "changeMode": "replace",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "playwright.config.mjs",
+      "fromSpec": "SPEC-TROY-SIEGE-019",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "88eeeb56fa5017cfb0461dd11a81dff21672f57c0c347e618e53c1bc1fde59cc",
+      "changeMode": "narrow-amend",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "service-worker.js",
+      "fromSpec": "SPEC-TROY-SIEGE-019",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "9dd3b11da27f8f4e4548e9b1ec0c01c304d770b20fc4ba3d21d4dfd251269c07",
+      "changeMode": "replace",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "tools/perf-runner-v16.mjs",
+      "fromSpec": "SPEC-TROY-SIEGE-019",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "1c23938b7a9390f059ed220e025746ca79835b30cb2e93c4723a733ca5c13a63",
+      "changeMode": "narrow-amend",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "tools/validate-v16-campaign.mjs",
+      "fromSpec": "SPEC-TROY-CAMPAIGN-018",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "5a2c7f9f3ebd655dde32de03c05fa44dc2937b974cefe88b3376c0c1b1d9321b",
+      "changeMode": "narrow-amend",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "tools/validate-v16-combat.mjs",
+      "fromSpec": "SPEC-TROY-BATTLEFIELD-017",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "8e2406b277f64c79039211c0afa9e879732fb6de9be688fc1e57c93cc77fae0a",
+      "changeMode": "narrow-amend",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "tools/validate-v16.mjs",
+      "fromSpec": "SPEC-TROY-SIEGE-019",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "ca3fa4da71fe8e43bea3c072c550e403a58e51b1442fed57dcc6f77213462dae",
+      "changeMode": "narrow-amend",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    },
+    {
+      "path": "v16-release-manifest.json",
+      "fromSpec": "SPEC-TROY-SIEGE-019",
+      "authorizedToSpec": "SPEC-TROY-RICH-INTEGRATION-020",
+      "fromHash": "17305752f70ca744c7415ddc92a654b94165e4285e6da8acd9b1f681b8c31395",
+      "changeMode": "replace",
+      "releaseEvidencePath": "baselines/v16-rich-release.json"
+    }
+  ],
+  "openDebts": [
+    {
+      "id": "audio-listening",
+      "sourceSpec": "SPEC-TROY-SIEGE-019",
+      "priorStatus": "FAIL",
+      "evidencePath": "audio-listening-v16.json",
+      "closureCommand": "npm run check:v16:listening"
+    },
+    {
+      "id": "reference-performance",
+      "sourceSpec": "SPEC-TROY-SIEGE-019",
+      "priorStatus": "FAIL",
+      "evidencePath": ".moai/reports/SPEC-TROY-RICH-INTEGRATION-020/perf.json",
+      "closureCommand": "npm run perf:v16"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+import { AttackIntentScheduler } from './attack-intent-v16.js';
+import { createBossState, createPatternIntents, reduceBoss } from './boss-fsm-v16.js';
+import { createAudioAdapter } from './audio-adapter-v16.js';
+
+export function createSiegeRuntime({manifest,audio=createAudioAdapter()}={}){
+ let current=null,tick=0,instance=0;const scheduler=new AttackIntentScheduler(),events=[];
+ const sound=(id,bus='ui')=>{try{void Promise.resolve(audio.play(id,{bus,atMs:tick*1000/60})).then(ok=>{if(ok===false)events.push({type:'audio-fallback',audioId:id,tick});}).catch(()=>events.push({type:'audio-fallback',audioId:id,tick}));}catch{events.push({type:'audio-fallback',audioId:id,tick});}};
+ function spawnBoss(bossId,options={}){current=createBossState({bossId,...options});events.push({type:'boss-spawn',bossId,tick});audio.startBattlefield?.('city');audio.setIntensity?.('boss',tick);sound('cue_boss_intro');return snapshot();}
+ function selectPattern(atTick=tick){if(!current)throw new Error('boss is not active');tick=atTick;current=reduceBoss(current,{type:'select-pattern',tick},manifest);const boss=manifest.bosses.find(item=>item.id===current.bossId),eligible=boss.patterns.filter(pattern=>pattern.phases.includes(current.phase)),pattern=eligible[current.patternIndex];const intents=createPatternIntents({bossId:current.bossId,patternId:pattern.id,instanceId:`${current.bossId}-${++instance}`,startTick:tick,origin:{x:512,y:180}},manifest);for(const intent of intents)scheduler.schedule(intent);scheduler.advance(tick);events.push({type:'boss-pattern',patternId:pattern.id,tick});return intents;}
+ function damage(id,amount){if(!current)return snapshot();const prior=current;current=reduceBoss(current,{type:'damage',id,damage:amount},manifest);if(current.crossedBoundaries.length>prior.crossedBoundaries.length){audio.setIntensity?.(current.phase===3?'critical':'boss',tick);sound('cue_boss_enrage');}if(current.state==='dead'&&prior.state!=='dead')sound('cue_boss_defeat');return snapshot();}
+ function step(toTick=tick+1){tick=toTick;if(current)current=reduceBoss(current,{type:'step',tick},manifest);const impacts=scheduler.advance(tick);for(const hit of impacts)events.push({type:'boss-impact',impactId:hit.impactId,tick});return impacts;}
+ function snapshot(){return Object.freeze({tick,boss:current,scheduler:scheduler.snapshot(),events:Object.freeze([...events]),audio:audio.snapshot?.()??null});}
+ return Object.freeze({spawnBoss,selectPattern,damage,step,snapshot});
+}
+
+if(typeof window!=='undefined'&&window.TroyV16){
+ const audio=createAudioAdapter();window.addEventListener('troy:v16-audio-mute',event=>audio.setBus('master',{gain:1,mute:!!event.detail?.mute}));let runtime=null,error=null;const requireRuntime=()=>{if(error)throw error;if(!runtime)throw new Error('siege manifest is loading');return runtime;};const adapter=Object.freeze({get ready(){return !!runtime;},spawnBoss:(...args)=>requireRuntime().spawnBoss(...args),selectPattern:(...args)=>requireRuntime().selectPattern(...args),damage:(...args)=>requireRuntime().damage(...args),step:(...args)=>requireRuntime().step(...args),snapshot:()=>runtime?Object.freeze({...runtime.snapshot(),ready:true}):Object.freeze({ready:false,error:error?.message??null})});window.TroyV16.registerSiege(adapter);if(new URLSearchParams(location.search).get('test')==='1')window.__TROY_V16_SIEGE_TEST__=adapter;fetch('assets/bosses/troy-boss-fsm-v16.json').then(response=>{if(!response.ok)throw new Error(`boss manifest ${response.status}`);return response.json();}).then(manifest=>{runtime=createSiegeRuntime({manifest,audio});}).catch(reason=>{error=reason;console.error('V16 siege manifest failed',reason);});
+}

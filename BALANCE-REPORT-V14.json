@@ -1,0 +1,188 @@
+{
+  "version": 14,
+  "seed": "0x12f4a11",
+  "model": "deterministic-combat-regression-v1",
+  "overall": {
+    "runs": 21600,
+    "survivalRate": 0.4221759259259259,
+    "avgSeconds": 463.8524074074074,
+    "crashCount": 0
+  },
+  "flags": [
+    {
+      "path": "sling/heavy",
+      "issue": "underperforming",
+      "delta": -0.173
+    }
+  ],
+  "byPath": {
+    "spear/thrust": {
+      "runs": 900,
+      "survivalRate": 0.31777777777777777,
+      "avgSeconds": 454.5388888888889,
+      "avgBosses": 5.5344444444444445,
+      "avgDamage": 80674.67905277407
+    },
+    "spear/spin": {
+      "runs": 900,
+      "survivalRate": 0.42,
+      "avgSeconds": 465.66,
+      "avgBosses": 5.601111111111111,
+      "avgDamage": 78549.75323910493
+    },
+    "sword/melee": {
+      "runs": 900,
+      "survivalRate": 0.4177777777777778,
+      "avgSeconds": 466.0811111111111,
+      "avgBosses": 5.6755555555555555,
+      "avgDamage": 81689.24411759332
+    },
+    "sword/throw": {
+      "runs": 900,
+      "survivalRate": 0.30333333333333334,
+      "avgSeconds": 453.8811111111111,
+      "avgBosses": 5.527777777777778,
+      "avgDamage": 77228.04563353777
+    },
+    "javelin/volley": {
+      "runs": 900,
+      "survivalRate": 0.44555555555555554,
+      "avgSeconds": 466.90777777777777,
+      "avgBosses": 5.644444444444445,
+      "avgDamage": 80418.19214362193
+    },
+    "javelin/hunter": {
+      "runs": 900,
+      "survivalRate": 0.35555555555555557,
+      "avgSeconds": 457.72,
+      "avgBosses": 5.622222222222222,
+      "avgDamage": 82644.16844482777
+    },
+    "shield/fortress": {
+      "runs": 900,
+      "survivalRate": 0.5111111111111111,
+      "avgSeconds": 473.43444444444447,
+      "avgBosses": 5.7011111111111115,
+      "avgDamage": 76936.84084570412
+    },
+    "shield/assault": {
+      "runs": 900,
+      "survivalRate": 0.5333333333333333,
+      "avgSeconds": 472.97,
+      "avgBosses": 5.7011111111111115,
+      "avgDamage": 80181.25473914274
+    },
+    "discus/swarm": {
+      "runs": 900,
+      "survivalRate": 0.43444444444444447,
+      "avgSeconds": 472.8955555555556,
+      "avgBosses": 5.7411111111111115,
+      "avgDamage": 78705.96157030715
+    },
+    "discus/razor": {
+      "runs": 900,
+      "survivalRate": 0.44666666666666666,
+      "avgSeconds": 462.65444444444444,
+      "avgBosses": 5.661111111111111,
+      "avgDamage": 84314.11779129528
+    },
+    "firepot/spread": {
+      "runs": 900,
+      "survivalRate": 0.46555555555555556,
+      "avgSeconds": 467.47555555555556,
+      "avgBosses": 5.627777777777778,
+      "avgDamage": 79137.46248521018
+    },
+    "firepot/furnace": {
+      "runs": 900,
+      "survivalRate": 0.30666666666666664,
+      "avgSeconds": 449.40222222222224,
+      "avgBosses": 5.511111111111111,
+      "avgDamage": 79597.82281625737
+    },
+    "sling/ricochet": {
+      "runs": 900,
+      "survivalRate": 0.44222222222222224,
+      "avgSeconds": 464.40444444444444,
+      "avgBosses": 5.615555555555556,
+      "avgDamage": 79695.62433559679
+    },
+    "sling/heavy": {
+      "runs": 900,
+      "survivalRate": 0.24888888888888888,
+      "avgSeconds": 447.4822222222222,
+      "avgBosses": 5.481111111111111,
+      "avgDamage": 78061.85110153815
+    },
+    "bow/volley": {
+      "runs": 900,
+      "survivalRate": 0.4311111111111111,
+      "avgSeconds": 461.21555555555557,
+      "avgBosses": 5.546666666666667,
+      "avgDamage": 79963.71282950508
+    },
+    "bow/hunter": {
+      "runs": 900,
+      "survivalRate": 0.27444444444444444,
+      "avgSeconds": 448.8233333333333,
+      "avgBosses": 5.49,
+      "avgDamage": 79840.73970415704
+    },
+    "flail/orbit": {
+      "runs": 900,
+      "survivalRate": 0.5444444444444444,
+      "avgSeconds": 473.2611111111111,
+      "avgBosses": 5.708888888888889,
+      "avgDamage": 81783.70052088023
+    },
+    "flail/impact": {
+      "runs": 900,
+      "survivalRate": 0.4888888888888889,
+      "avgSeconds": 471.87111111111113,
+      "avgBosses": 5.8133333333333335,
+      "avgDamage": 88386.81006807557
+    },
+    "thunder/chain": {
+      "runs": 900,
+      "survivalRate": 0.48,
+      "avgSeconds": 468.8388888888889,
+      "avgBosses": 5.644444444444445,
+      "avgDamage": 81142.54306465485
+    },
+    "thunder/burst": {
+      "runs": 900,
+      "survivalRate": 0.3488888888888889,
+      "avgSeconds": 456.65222222222224,
+      "avgBosses": 5.56,
+      "avgDamage": 83512.77517138598
+    },
+    "caltrops/control": {
+      "runs": 900,
+      "survivalRate": 0.4444444444444444,
+      "avgSeconds": 473.7322222222222,
+      "avgBosses": 5.747777777777777,
+      "avgDamage": 78383.65738257908
+    },
+    "caltrops/trap": {
+      "runs": 900,
+      "survivalRate": 0.4855555555555556,
+      "avgSeconds": 463.97,
+      "avgBosses": 5.635555555555555,
+      "avgDamage": 82518.1030049881
+    },
+    "ram/line": {
+      "runs": 900,
+      "survivalRate": 0.4988888888888889,
+      "avgSeconds": 473.3088888888889,
+      "avgBosses": 5.802222222222222,
+      "avgDamage": 82782.23406721205
+    },
+    "ram/break": {
+      "runs": 900,
+      "survivalRate": 0.4866666666666667,
+      "avgSeconds": 465.27666666666664,
+      "avgBosses": 5.766666666666667,
+      "avgDamage": 86210.2639884861
+    }
+  }
+}

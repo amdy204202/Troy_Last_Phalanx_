@@ -934,7 +934,7 @@ import {
 
   function dropXp(x, y, value, grade = 1) {
     const list = game.pickups, stop = Math.max(0, list.length - 48);
-    for (let i = list.length - 1; i >= stop; i--) { const q = list[i]; if (q.kind === 'xp' && (q.x - x) ** 2 + (q.y - y) ** 2 < 46 ** 2) { q.value += value; q.grade = Math.max(q.grade || 1, grade); q.r = Math.min(11, q.r + .15); q.life = 105; return; } }
+    for (let i = stop; i < list.length; i++) { const q = list[i]; if (q.kind === 'xp' && (q.x - x) ** 2 + (q.y - y) ** 2 < 46 ** 2) { q.value += value; q.grade = Math.max(q.grade || 1, grade); q.r = Math.min(11, q.r + .15); q.life = 105; return; } }
     if (game.pickups.length >= 110) {
       const q = game.pickups.find(p => p.kind === 'xp'); if (q) { q.value += value; q.grade = Math.max(q.grade || 1, grade); return; }
     }

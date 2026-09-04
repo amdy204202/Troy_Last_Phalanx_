@@ -21,5 +21,5 @@ test('campaign reducers contain no wall-clock, random, timer, DOM or audio APIs'
 
 test('campaign project validator confirms final V16 live route and frozen V15 route', () => {
   const result = validateCampaignProject(root,{route:'final',frozenRoot:resolve(root,'e2e/fixtures/v15-frozen')});
-  assert.deepEqual(result, { packages: 3, stages: 8, forbiddenCalls: 0, liveRoute: 'rich', frozenRoute:'v15', campaignRoute: 'tech-registered' });
+  assert.deepEqual(result, { packages: 3, stages: 8, forbiddenCalls: 0, liveRoute: 'canonical', frozenRoute:'v15', campaignRoute: 'integrated' });
 });

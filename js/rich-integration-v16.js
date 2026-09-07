@@ -66,7 +66,8 @@ export function resolveSpatialEvade({ intent, defense, dodgeStart, hazard, playe
 export function defenseStatusSnapshot(state) {
   state = stepDefense(state, state.tick);
   if (!state.action || state.phase === 'ready') return Object.freeze({ source: 'v16', mode: 'neutral', action: null, phase: 'ready', phaseElapsedMs: 0, phaseDurationMs: 0, cooldownTicks: 0 });
-  const doctrine = HERO_DOCTRINES[state.hero][state.action];
+  const base = HERO_DOCTRINES[state.hero][state.action];
+  const doctrine = {...base,activeMs:base.activeMs+(state.action==='parry'?(state.windowBonusMs||0):0)};
   const elapsedMs = Math.max(0, (state.tick - state.startTick) * FIXED_TICK_MS);
   const phaseOffsetMs = state.phase === 'active' ? doctrine.startupMs : state.phase === 'recovery' ? doctrine.startupMs + doctrine.activeMs : 0;
   const phaseDurationMs = doctrine[`${state.phase}Ms`] ?? 0;

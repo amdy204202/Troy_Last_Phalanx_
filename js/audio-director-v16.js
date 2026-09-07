@@ -10,8 +10,8 @@ export function createAudioDirector({barTicks=240,packageId='shore'}={}){return 
 export function reduceAudioDirector(state,event){
   if(event.type==='package'&&['shore','plain','city'].includes(event.packageId))return Object.freeze({...state,packageId:event.packageId});
   if(event.type==='intensity'){
-    if(!LEVELS.has(event.level))return state;const atTick=Math.ceil(event.tick/state.barTicks)*state.barTicks;
-    return Object.freeze({...state,level:event.level,commands:Object.freeze([...state.commands,Object.freeze({type:'crossfade',level:event.level,packageId:state.packageId,atTick,durationTicks:state.barTicks})])});
+    if(!LEVELS.has(event.level)||state.level===event.level)return state;const atTick=Math.ceil(event.tick/state.barTicks)*state.barTicks;
+    return Object.freeze({...state,level:event.level,commands:Object.freeze([...state.commands.slice(-63),Object.freeze({type:'crossfade',level:event.level,packageId:state.packageId,atTick,durationTicks:state.barTicks})])});
   }
   if(event.type==='play'){
     const prior=state.lastPlay[event.audioId];if(Number.isFinite(prior)&&event.atMs-prior<50)return state;

@@ -1,0 +1,65 @@
+/* Generated obsidian/bronze art frames. Content remains real, accessible text. */
+:root{--v17-art:url('../assets/v17/ui-atlas.png');--v17-icons:url('../assets/v17/icons.png');--muted:#beb5a3}
+button{font-family:inherit;touch-action:manipulation}
+button:focus-visible,select:focus-visible{outline:3px solid #9cf3e2;outline-offset:3px}
+.menuFlow{height:100dvh;min-height:0}
+.menuOverlay{background:#080d11}
+.titleBackdrop{background-image:linear-gradient(90deg,#070e16f5,#07101999,transparent),url('../assets/v17/boss-portraits.png');background-size:100% 100%,400% 200%;background-position:center,100% 100%;opacity:.95}
+.titleContent{width:min(680px,62vw);margin-left:7vw;padding:32px}
+.titleContent h1{font-size:clamp(64px,8vw,120px);letter-spacing:-.055em}
+.titleContent h1 span{letter-spacing:.27em;line-height:1.8}
+.titleContent .ornament{color:#89c7c4;letter-spacing:.25em}
+.titleContent .lede{color:#efe2c7;text-shadow:0 2px 8px #000}
+.primary,.secondary,.saveActions button,.choiceTools button,.supplyChoice,.safeGateOpen{background-image:var(--v17-art);background-size:200% 200%;background-position:0 100%;color:#fff0c8;border:1px solid #bd9852;border-radius:5px;text-shadow:0 1px 4px #000;min-height:40px}
+.secondary{background-position:100% 100%;border-color:#3c7575}
+button:disabled{filter:saturate(.25);opacity:.55}
+.preparationStep{display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;height:100%;min-height:0;padding:30px max(22px,4vw) 18px;background:#09121a}
+#loadoutStep{grid-template-rows:auto minmax(0,1fr) auto}
+.preparationStep.hidden{display:none}
+.prepHeader h2{font-size:clamp(23px,3vw,38px);margin:6px 0}
+.prepHeader p{line-height:1.6;color:#beb8a9}
+.prepScroll{min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-color:#967143 #10222c;scrollbar-width:thin}
+.prepFooter{gap:12px;padding:14px 0 0;flex-shrink:0;border-top:1px solid #655137;background:none}
+.panel,.choicePanel,.metaCard,.heroCard,.optionBlock,.codexEntry,.glass{background-image:var(--v17-art);background-size:200% 200%;background-position:0 0;background-color:#09131b;border-color:#77623d;border-radius:8px}
+.metaCard{padding:18px!important;min-height:155px!important}
+.metaCard button{margin-top:auto;min-height:38px}
+.loadoutBody .heroCard{background-image:var(--v17-art);background-size:200% 200%;background-position:0 0;min-height:270px;padding:160px 16px 16px;white-space:normal}
+.loadoutBody .heroCard.active{background-position:100% 0;border-color:#e5bd6f;box-shadow:0 0 20px #d5a84b25}
+.loadoutBody .heroCard.active:after{content:'선택됨';font-size:10px;top:12px;right:12px}
+.loadoutBody .heroCard img{height:154px;width:160px;top:8px}
+.loadoutBody .heroCard b{white-space:normal;font-size:23px}
+.heroTrait,.heroUltimate{font-size:11px;line-height:1.6}
+.optionBlock{min-height:0!important;padding:16px!important}
+.choicePanel{max-height:calc(100dvh - 30px);overflow:auto;padding:24px}
+.choiceCard{background-image:var(--v17-art)!important;background-size:200% 200%!important;background-position:0 0!important;padding:22px!important}
+.choiceCard:hover{background-position:100% 0!important}
+.choiceIcon{height:90px}.choiceCard h3{font-size:20px}.choiceCard p{font-size:12px;line-height:1.65}.choiceCard:before,.choiceCard:after{display:none}
+.dialog{max-height:calc(100dvh - 30px);overflow:auto}
+@media(max-width:720px){#choiceCards{grid-template-columns:1fr;gap:12px}.choiceCard{min-height:240px!important}.choicePanel h2{font-size:24px}.choicePanel{width:calc(100vw - 18px)}.choiceIcon{height:64px}.choiceIcon .v17Icon{width:60px;height:60px}.rarityLegend{flex-wrap:wrap}}
+.dialogActions button{background-image:var(--v17-art);background-size:200% 200%;background-position:0 100%}
+#combatActions .actionCell{pointer-events:auto;cursor:pointer;min-height:48px;grid-template-columns:46px minmax(0,1fr)!important;column-gap:6px}
+.v17Icon{display:inline-block;width:44px;height:44px;flex-shrink:0;background-image:var(--v17-icons);background-size:400% 400%;background-repeat:no-repeat;border-radius:5px;vertical-align:middle}
+.buildIcon .v17Icon{width:44px;height:44px}
+.choiceIcon .v17Icon,.choiceArt .v17Icon{width:90px;height:90px}
+.topbar{gap:10px}.mission,.runstats,.vitals{background-color:#08111acc;box-shadow:0 4px 20px #0006}
+#combatActions .actionKey{width:46px;height:46px;position:relative;padding-top:32px;color:white;font-size:9px;text-shadow:0 2px 3px #000;background-image:var(--v17-icons);background-size:400% 400%;border:0}
+#parryHud .actionKey{background-position:0 100%}#dashHud .actionKey{background-position:33.333% 100%}#ultimateHud .actionKey{background-position:66.667% 100%}
+#bossWrap{background-position:100% 0;max-width:calc(100vw - 30px);padding:9px 18px;top:112px;bottom:auto;width:min(680px,68vw);pointer-events:none}
+.audioPreview{display:grid;gap:7px;margin:12px 0}.audioPreview small{font-size:11px;line-height:1.5;color:#c0b797}.audioPreview button{min-height:40px}
+#hud:has(#bossWrap:not(.hidden)) #buildPanel{display:none}
+@media(max-width:720px){#bossWrap{top:96px;bottom:auto;width:calc(100vw - 24px);padding:7px 12px}}
+@media(max-height:600px){#bossWrap{top:98px;bottom:auto;padding:5px 12px}.bossTacticRow{display:none}}
+#bossPatternText{color:#ffe2a3}#bossHintText{color:#c6e8df}.bossTacticRow{gap:8px;flex-wrap:wrap}
+#globalXpHud{background:#0a131cb8;border-top:1px solid #a78f60;padding:6px 16px 9px;backdrop-filter:none}
+.globalXpTrack{height:14px;background:#080e14b8;border:1px solid #497c77}.globalXpTrack i{background:linear-gradient(90deg,#277b84,#80d8c9);box-shadow:0 0 10px #5ad8bd55}
+#bossIntro.bossCinematic{position:absolute;inset:0;z-index:60;display:grid;grid-template-columns:minmax(240px,44%) 1fr;align-items:center;gap:4vw;padding:8vh 8vw;background:linear-gradient(90deg,#02070cf5,#08121cf0);text-align:left;pointer-events:auto;animation:v17Reveal .35s ease-out both;overflow:hidden}
+#bossIntro.hidden{display:none!important}
+.bossPortrait{width:100%;aspect-ratio:1;max-height:76vh;background-image:url('../assets/v17/boss-portraits.png');background-size:400% 200%;border:1px solid #d5ab62;box-shadow:0 18px 100px #c8851922;animation:v17Portrait 2.8s ease-out both}
+.bossIntroCopy{min-width:0;display:grid;gap:15px}.bossIntroCopy small{letter-spacing:.24em;color:#bba070;font-size:11px}.bossIntroCopy em{font-style:normal;color:#8fd3c9;letter-spacing:.12em;font-size:18px}
+#bossIntroName{font-size:clamp(28px,3.6vw,64px);line-height:1.25;color:#ffe8b5;word-break:keep-all}
+.bossIntroCopy p{font-size:clamp(14px,1.3vw,19px);line-height:1.7;color:#dfdacd}.bossLegend{display:flex;flex-wrap:wrap;gap:8px;font-size:12px}.bossLegend span:first-child{color:#7de6d3}.bossLegend span:last-child{color:#ef7962}
+#bossIntro.bossCinematic{background-color:#070e17}
+#bossIntroSkip{margin-top:10px;width:150px}
+@keyframes v17Reveal{from{opacity:0}to{opacity:1}}@keyframes v17Portrait{from{transform:translateX(-20px);filter:brightness(.5)}to{transform:none;filter:brightness(1)}}
+@media(max-width:720px){.titleContent{width:100%;margin:0;padding:30px 24px}.titleContent h1{font-size:68px}.titleContent .lede{font-size:13px}.titleBackdrop{opacity:.6}.preparationStep{padding:18px 14px 10px}.prepHeader p{font-size:12px}.prepFooter .footerHint{display:none}.prepFooter button{font-size:12px;padding:10px 14px}.loadoutBody .heroSelect{grid-template-columns:1fr}.loadoutBody .heroCard{min-height:150px;padding:12px 14px 12px 130px;align-items:flex-start;text-align:left}.loadoutBody .heroCard img{left:3px;top:10px;width:120px;height:132px;transform:none}.loadoutBody .heroCard b{font-size:20px}.heroTrait,.heroUltimate{font-size:10px}.choicePanel{padding:18px;max-height:calc(100dvh - 18px)}#bossIntro.bossCinematic{grid-template-columns:1fr;padding:24px;gap:14px;align-content:center}.bossPortrait{width:min(42vh,70vw);margin:auto}.bossIntroCopy{gap:7px;text-align:center}#bossIntroName{font-size:28px}.bossIntroCopy em{font-size:15px}.bossIntroCopy p{font-size:13px;margin:0}.bossLegend{justify-content:center;font-size:10px}#bossIntroSkip{margin:8px auto 0}.prepHeader{align-items:flex-start}.largeCurrency{font-size:12px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}

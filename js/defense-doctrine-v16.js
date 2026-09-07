@@ -2,15 +2,15 @@ const TICK_MS = 1000 / 60;
 
 export const HERO_DOCTRINES = Object.freeze({
   hoplite: Object.freeze({
-    parry: Object.freeze({ startupMs: 90, activeMs: 220, recoveryMs: 300, coneDeg: 150, counter: 1, successStunRadius: 180, successStunMs: 450 }),
+    parry: Object.freeze({ startupMs: 35, activeMs: 250, recoveryMs: 300, coneDeg: 160, counter: 1, successStunRadius: 180, successStunMs: 450 }),
     dodge: Object.freeze({ startupMs: 70, activeMs: 240, recoveryMs: 300, distance: 150, recoveryReductionMs: 0, attackSpeedMultiplier: 1, attackSpeedMs: 0 }),
   }),
   swordsman: Object.freeze({
-    parry: Object.freeze({ startupMs: 70, activeMs: 140, recoveryMs: 220, coneDeg: 80, counter: 1.8, successStunRadius: 0, successStunMs: 120 }),
+    parry: Object.freeze({ startupMs: 25, activeMs: 195, recoveryMs: 260, coneDeg: 115, counter: 1.8, successStunRadius: 0, successStunMs: 120 }),
     dodge: Object.freeze({ startupMs: 50, activeMs: 180, recoveryMs: 220, distance: 120, recoveryReductionMs: 40, attackSpeedMultiplier: 1, attackSpeedMs: 0 }),
   }),
   archer: Object.freeze({
-    parry: Object.freeze({ startupMs: 85, activeMs: 170, recoveryMs: 250, coneDeg: 110, counter: .75, successStunRadius: 0, successStunMs: 0 }),
+    parry: Object.freeze({ startupMs: 35, activeMs: 215, recoveryMs: 280, coneDeg: 130, counter: .75, successStunRadius: 0, successStunMs: 0 }),
     dodge: Object.freeze({ startupMs: 45, activeMs: 280, recoveryMs: 240, distance: 220, recoveryReductionMs: 0, attackSpeedMultiplier: 1.25, attackSpeedMs: 750 }),
   }),
 });
@@ -36,7 +36,8 @@ export function requestDefense(state, action, tick, direction = { x: 0, y: 0 }) 
 // @MX:NOTE: [AUTO] Logical defense time is always the fixed 60 Hz simulation tick; render delta is intentionally ignored.
 export function stepDefense(state, tick, _renderDeltaMs = 0) {
   if (!state.action || state.phase === 'ready') return Object.freeze({ ...state, tick });
-  const doctrine = HERO_DOCTRINES[state.hero][state.action];
+  const base = HERO_DOCTRINES[state.hero][state.action];
+  const doctrine = {...base,activeMs:base.activeMs+(state.action==='parry'?(state.windowBonusMs||0):0)};
   const phase = phaseAt(state.action, (tick - state.startTick) * TICK_MS, doctrine);
   return Object.freeze({ ...state, action: phase === 'ready' ? null : state.action, phase, tick });
 }

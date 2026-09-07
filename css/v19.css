@@ -1,0 +1,26 @@
+:root{--font-display:"Malgun Gothic","Segoe UI",Arial,sans-serif;--muted:#d6dee3}
+body *{font-family:var(--font-display)!important}
+body,button,select,input,h1,h2,h3,.ornament,.choiceTag,.actionKey,.globalXpMeta,.metaHead h2,.choiceHead h2,.choiceCard h3,.dialog h2,.codexHead h2,.prepHeader h2,.loadoutBody .heroCard b,.optionBlock h3,.vitals .name,.supplyPanel h2,.supplyChoice b,.bossCinematic b,#stageName,#bossName{font-family:"Malgun Gothic","Segoe UI",Arial,sans-serif!important;letter-spacing:0}
+body{font-size:17px;color:#f1f4f6}button,input,select{font-size:16px}button{min-height:44px;font-weight:700}p{line-height:1.65;word-break:keep-all;overflow-wrap:anywhere}
+.titleContent .lede,.prepHeader p,.heroTrait,.heroUltimate,.choiceCard p,.supplyChoice span,.optionBlock p{font-size:16px!important;color:#e5eaf0!important;line-height:1.7}
+.metaCard small,.metaCard p,.codexEntry p,.audioPreview small,.bossTacticRow,.bossLegend,.globalXpMeta,.footerHint{font-size:14px!important;line-height:1.6;color:#dbe5eb}
+.choiceCard h3,.supplyChoice b{font-size:22px!important;line-height:1.4}.choiceTag,.rarityLegend{font-size:14px}.choicePanel{overflow:auto}.choiceCard{min-height:290px!important}
+.heroTrait,.heroUltimate{display:block}.loadoutBody .heroCard{min-height:335px}.metaCard{min-height:190px!important}
+.vitals .name{font-size:18px}.vitals small,.runstats small{font-size:13px!important}#bossName{font-size:23px}#bossPatternText{font-size:17px}#bossHintText{font-size:15px}
+#combatActions{display:none!important}
+#hud:has(#bossWrap:not(.hidden)) #eventBanner{top:auto;bottom:100px;width:min(520px,80vw);transform:translateX(-50%);padding:10px 14px;background:#080d15e8;border:1px solid #a1804e66}
+#eventBanner b{font-size:22px}#eventBanner em{font-size:15px;line-height:1.5}#bossIntroSkip{font-size:15px}
+.choiceTools{justify-content:center}.choiceTools button{min-width:250px;max-width:100%}
+.shopBalance{display:flex;align-items:center;justify-content:space-between;border-block:1px solid #9e784e66;padding:14px 4px;color:#eff3f6;font-size:18px}.shopBalance b{font-size:28px;color:#ffdd85}
+#warShopOverlay .supplyPanel{max-height:calc(100dvh - 24px);overflow:auto;padding:28px;background-color:#070c12}
+#warShopSlots{grid-template-columns:repeat(2,minmax(0,1fr));margin:14px 0;gap:12px}
+#warShopSlots .supplyChoice{min-height:155px;padding:18px;background-image:none;background:#142331;border:2px solid #526575;text-align:left;text-shadow:none}
+#warShopSlots .supplyChoice.selected{background:#253b4a;border-color:#ffda85;box-shadow:0 0 0 2px #b18b4540}#warShopSlots .supplyChoice small{font-size:16px;color:#ffdd85}
+#warShopPurchase:disabled{cursor:not-allowed}.shopHint{font-size:15px;color:#e4edf4;margin:12px 0}
+.settingsPanel{max-height:calc(100dvh - 24px)!important;overflow:auto;scroll-padding-bottom:70px}.settingsPanel label{font-size:16px}.settingsPanel #settingsClose{position:sticky;bottom:-1px;z-index:2;box-shadow:0 -8px 18px #080e16;background:#34483e;border:1px solid #e1c27c;margin-top:16px}
+.choiceCard,.metaCard,.codexEntry{background-image:linear-gradient(#0b141ee8,#0b141ee8),var(--v17-art)!important;text-shadow:0 1px 2px #000}
+.bossCinematic .bossPortrait{animation:bossEntryV19 1.7s ease-out both}
+@keyframes bossEntryV19{0%{opacity:0;transform:translateX(-35px) scale(1.04)}22%,84%{opacity:1;transform:none}100%{opacity:.8;transform:translateX(8px)}}
+@media(max-width:720px){.titleContent h1{font-size:64px}.loadoutBody .heroCard{min-height:225px}.heroTrait,.heroUltimate,.prepHeader p,.choiceCard p{font-size:15px!important}.choicePanel{max-height:calc(100dvh - 16px);padding:16px!important}.choiceCard{min-height:265px!important}#bossName{font-size:19px}#bossPatternText{font-size:15px}#bossHintText{font-size:14px}.bossTacticRow{display:none}.shopBalance{padding:9px 2px}#warShopOverlay .dialogActions{flex-wrap:wrap}#warShopOverlay .supplyPanel{padding:16px}#warShopSlots{grid-template-columns:1fr}.prepFooter button{font-size:15px}.globalXpMeta{font-size:13px!important}}
+@media(max-height:600px){.prepHeader p{margin:4px 0}.preparationStep{padding-top:12px}.prepFooter{padding-top:8px}.titleContent{padding-block:14px}.titleContent h1{font-size:64px}}
+@media(prefers-reduced-motion:reduce){.bossCinematic .bossPortrait{animation:none}}

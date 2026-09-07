@@ -1,6 +1,0 @@
-{
-  "schema": "troy.third-party-source-allowlist/1",
-  "copiedExternalPaths": [],
-  "deniedAssetLicenses": ["CC-BY-NC", "proprietary", "unknown"],
-  "implementationRule": "Only independently authored files in this repository may ship."
-}

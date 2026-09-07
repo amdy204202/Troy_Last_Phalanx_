@@ -30,7 +30,7 @@ export function lateThreatProfile(seconds) {
 
 export function shouldTriggerGorgon({ kills, relicLevel }) {
   const count = Math.floor(finiteNonNegative(kills));
-  return finiteNonNegative(relicLevel) > 0 && count > 0 && count % 400 === 0;
+  return finiteNonNegative(relicLevel) > 0 && count > 0 && count % 120 === 0;
 }
 
 export function canGorgonPetrify(target) {
